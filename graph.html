@@ -29,7 +29,7 @@
             display: block;
         }
     </style>
-    <title>DNO037</title>
+    <title>Olga F. Vio - DNO037</title>
 </head>
 
 <body>
@@ -42,13 +42,13 @@
 
     <script>
         var url = "https://pomber.github.io/covid19/timeseries.json";
-        var casos, italia, austria, eslovenia, francia, suiza;
+        var casos, italia, canada, eslovenia, francia, australia;
         var marzo = [];
         var marzo_italia = [];
-        var marzo_austria = [];
+        var marzo_canada = [];
         var marzo_eslovenia = [];
         var marzo_francia = [];
-        var marzo_suiza = [];
+        var marzo_australia = [];
 
         function preload() {
             casos = loadJSON(url);
@@ -62,92 +62,92 @@
             }
 
             italia = casos.Italy;
-            austria = casos.Austria;
+            canada = casos.Canada;
             eslovenia = casos.Slovenia;
             francia = casos.France;
-            suiza = casos.Switzerland;
+            australia = casos.Australia;
 
             for (let x = 0; x < italia.length; x++) {
                 if (italia[x].date.includes("-3-")) {
-                    marzo_italia.push(italia[x].confirmed);
+                    marzo_italia.push(italia[x].recovered);
                 }
             }
 
-            for (let x = 0; x < austria.length; x++) {
-                if (austria[x].date.includes("-3-")) {
-                    marzo_austria.push(austria[x].confirmed);
+            for (let x = 0; x < canada.length; x++) {
+                if (canada[x].date.includes("-3-")) {
+                    marzo_canada.push(canada[x].recovered);
                 }
             }
 
             for (let x = 0; x < eslovenia.length; x++) {
                 if (eslovenia[x].date.includes("-3-")) {
-                    marzo_eslovenia.push(eslovenia[x].confirmed);
+                    marzo_eslovenia.push(eslovenia[x].recovered);
                 }
             }
 
             for (let x = 0; x < francia.length; x++) {
                 if (francia[x].date.includes("-3-")) {
-                    marzo_francia.push(francia[x].confirmed);
+                    marzo_francia.push(francia[x].recovered);
                 }
             }
 
-            for (let x = 0; x < suiza.length; x++) {
-                if (suiza[x].date.includes("-3-")) {
-                    marzo_suiza.push(suiza[x].confirmed);
+            for (let x = 0; x < australia.length; x++) {
+                if (australia[x].date.includes("-3-")) {
+                    marzo_australia.push(australia[x].recovered);
                 }
             }
 
             new Chart(document.getElementById('chart').getContext('2d'), {
-                type: 'line',
+                type: 'bar',
                 data: {
                     labels: marzo,
                     datasets: [{
-                        label: 'Austria',
-                        backgroundColor: 'rgba(152,78,163,.1)',
-                        borderColor: 'rgb(152,78,163)',
-                        borderWidth: 2,
-                        pointRadius: 2,
-                        lineTension: 0,
-                        data: marzo_austria
-                    }, {
-                        label: 'Eslovenia',
-                        backgroundColor: 'rgba(77,175,74,.1)',
-                        borderColor: 'rgb(77,175,74)',
-                        borderWidth: 2,
-                        pointRadius: 2,
-                        lineTension: 0,
-                        data: marzo_eslovenia
-                    }, {
-                        label: 'Francia',
-                        backgroundColor: 'rgba(55,126,184,.1)',
-                        borderColor: 'rgb(55,126,184)',
-                        borderWidth: 2,
-                        pointRadius: 2,
-                        lineTension: 0,
-                        data: marzo_francia
-                    }, {
                         label: 'Italia',
-                        backgroundColor: 'rgba(228,26,28,.1)',
-                        borderColor: 'rgb(228,26,28)',
+                        backgroundColor: 'rgba(122,1,119)',
+                        borderColor: 'rgb(122,1,119)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
                         data: marzo_italia
                     }, {
-                        label: 'Suiza',
-                        backgroundColor: 'rgba(255,127,0,.1)',
-                        borderColor: 'rgb(255,127,0)',
+                        label: 'Francia',
+                        backgroundColor: 'rgba(197,27,138)',
+                        borderColor: 'rgb(197,27,138)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
-                        data: marzo_suiza
+                        data: marzo_francia
+                    }, {
+                        label: 'Canada',
+                        backgroundColor: 'rgba(247,104,161)',
+                        borderColor: 'rgb(247,104,161)',
+                        borderWidth: 2,
+                        pointRadius: 2,
+                        lineTension: 0,
+                        data: marzo_canada
+                    }, {
+                        label: 'Australia',
+                        backgroundColor: 'rgba(251,180,185)',
+                        borderColor: 'rgb(251,180,185)',
+                        borderWidth: 2,
+                        pointRadius: 2,
+                        lineTension: 0,
+                        data: marzo_australia
+                    }, {
+                        label: 'Eslovenia',
+                        backgroundColor: 'rgba(251,180,185)',
+                        borderColor: 'rgb(251,180,185)',
+                        borderWidth: 2,
+                        pointRadius: 2,
+                        lineTension: 0,
+                        data: marzo_eslovenia
                     }]
                 },
                 options: {
                     responsive: true,
                     title: {
                         display: true,
-                        text: 'Casos confirmados de coronavirus durante marzo 2020'
+                        text: 'Casos recuperados de coronavirus durante marzo 2020'
                     },
                     scales: {
                         yAxes: [{
