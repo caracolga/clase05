@@ -42,7 +42,7 @@
     <script>
         var url = "https://pomber.github.io/covid19/timeseries.json";
 
-        var casos, australia, confirmados, muertos, recuperados;
+        var casos, uruguay, confirmados, muertos, recuperados;
 
         function preload() {
             casos = loadJSON(url);
@@ -50,11 +50,11 @@
 
         function setup() {
             createCanvas(windowWidth, windowHeight).position(0, 0).style('z-index', -1);
-            australia = casos.Australia;
-            console.log(australia);
-            confirmados = australia[australia.length - 1].confirmed;
-            muertos = australia[australia.length - 1].deaths;
-            recuperados = australia[australia.length - 1].recovered;
+            uruguay = casos.Uruguay;
+            console.log(uruguay);
+            confirmados = uruguay[uruguay.length - 1].confirmed;
+            muertos = uruguay[uruguay.length - 1].deaths;
+            recuperados = uruguay[uruguay.length - 1].recovered;
             console.log(confirmados);
             console.log(muertos);
             console.log(recuperados);
@@ -84,7 +84,7 @@
             fill(0, 0, 20);
             textSize(30);
             textAlign(CENTER);
-            text("Australia", width / 2, height / 2);
+            text("Uruguay", width / 2, height / 2);
 
         }
 
